@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Vector1 from "@/public/Vector1.svg";
+import Vector2 from "@/public/Vector2.svg";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+
+const montserrat = localFont({
+  src: "./fonts/Montserrat.ttf",
+  variable: "--font-montserrat",
   weight: "100 900",
 });
 
@@ -25,10 +25,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={cn(montserrat.variable, "antialiased relative h-screen")}>
         {children}
+        <Image
+          src={Vector1}
+          className="absolute bottom-0 left-0 w-full"
+          alt=""
+        />
+        <Image
+          src={Vector2}
+          className="absolute bottom-0 left-0 w-full"
+          alt=""
+        />
       </body>
     </html>
   );
