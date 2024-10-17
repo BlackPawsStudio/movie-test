@@ -6,7 +6,6 @@ import Image from "next/image";
 import Vector1 from "@/public/Vector1.svg";
 import Vector2 from "@/public/Vector2.svg";
 
-
 const montserrat = localFont({
   src: "./fonts/Montserrat.ttf",
   variable: "--font-montserrat",
@@ -25,8 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(montserrat.variable, "antialiased relative h-screen")}>
-        {children}
+      <body
+        className={cn(montserrat.variable, "antialiased relative min-h-screen")}
+      >
+        <div className="max-w-[1200px] min-h-screen flex flex-col items-center mx-auto">
+          {children}
+        </div>
         <Image
           src={Vector1}
           className="absolute bottom-0 left-0 w-full"
