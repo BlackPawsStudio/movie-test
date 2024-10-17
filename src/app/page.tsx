@@ -3,6 +3,7 @@ import { Card } from "@/components/Card";
 import { EmptyList } from "@/components/EmptyList";
 import { Button } from "@/components/ui/button";
 import { MovieType } from "@/lib/types";
+import { SignOutButton, UserButton } from "@clerk/nextjs";
 import { ExitIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 
@@ -28,8 +29,13 @@ const HomePage = () => {
           />
         </div>
         <div className="flex text-lg gap-5 items-center">
-          Logout
-          <ExitIcon className="w-7 h-7" />
+          <UserButton />
+          <SignOutButton>
+            <Button variant="ghost" className="flex text-lg gap-5 items-center">
+              Logout
+              <ExitIcon className="w-7 h-7" />
+            </Button>
+          </SignOutButton>
         </div>
       </div>
       <div className="w-full grid grid-cols-4 gap-6 mt-[124px]">
