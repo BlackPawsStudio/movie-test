@@ -32,7 +32,7 @@ export default function RootLayout({
             "antialiased relative min-h-screen"
           )}
         >
-          <div className="max-w-[1200px] min-h-screen flex flex-col items-center mx-auto">
+          <div className="max-w-[320px] md:max-w-[640px] lg:max-w-[980px] xl:max-w-[1200px] min-h-screen flex flex-col items-center mx-auto">
             {children}
           </div>
           <Image

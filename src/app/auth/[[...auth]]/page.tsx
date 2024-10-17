@@ -17,7 +17,7 @@ const AuthPage = () => {
         <SignIn.Root>
           <SignIn.Step
             name="start"
-            className="flex flex-col items-center justify-center gap-12 w-1/5 mx-auto my-auto"
+            className="flex flex-col items-center justify-center gap-12 w-[300px] mx-auto my-auto"
           >
             <Clerk.GlobalError className="block text-sm text-destructive" />
             <h2 className="text-7xl font-bold">Sign in</h2>

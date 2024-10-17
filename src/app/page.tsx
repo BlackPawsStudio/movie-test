@@ -19,7 +19,7 @@ const HomePage = () => {
   return items.length ? (
     <div className="w-full mt-[124px] mb-[15vw]">
       <div className="w-full flex justify-between items-center">
-        <div className="flex gap-3 text-5xl tracking-wider font-bold items-center">
+        <div className="flex gap-3 text-xl lg:text-5xl tracking-wider font-bold items-center">
           My movies
           <PlusCircledIcon
             className="h-7 w-7 cursor-pointer hover:scale-105"
@@ -28,7 +28,7 @@ const HomePage = () => {
             }}
           />
         </div>
-        <div className="flex text-lg gap-5 items-center">
+        <div className="flex text-lg lg:gap-5 items-center">
           <UserButton />
           <SignOutButton>
             <Button variant="ghost" className="flex text-lg gap-5 items-center">
@@ -38,7 +38,7 @@ const HomePage = () => {
           </SignOutButton>
         </div>
       </div>
-      <div className="w-full grid grid-cols-4 gap-6 mt-[124px]">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-[124px]">
         {items.map((el, idx) => (
           <Card key={idx} data={el} />
         ))}
