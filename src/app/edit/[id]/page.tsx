@@ -1,8 +1,8 @@
-'use client'
+"use client";
 import { MovieForm } from "@/components/MovieForm";
 
 const NewMoviePage = () => {
-  return <MovieForm title="Create a new movie" onSubmit={() => {}} />;
+  return <MovieForm title="Edit" onSubmit={() => {}} />;
 };
 
 export default NewMoviePage;

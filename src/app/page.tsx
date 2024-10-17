@@ -1,10 +1,10 @@
 "use client";
-
 import { Card } from "@/components/Card";
 import { EmptyList } from "@/components/EmptyList";
 import { Button } from "@/components/ui/button";
 import { MovieType } from "@/lib/types";
 import { ExitIcon, PlusCircledIcon } from "@radix-ui/react-icons";
+import { useRouter } from "next/navigation";
 
 const HomePage = () => {
   const items: MovieType[] = new Array(12).fill(null).map(() => ({
@@ -13,12 +13,19 @@ const HomePage = () => {
     img: "https://res.cloudinary.com/dxyapxi2t/image/upload/v1715092419/Untitled_qv9by4.png",
   }));
 
+  const router = useRouter();
+
   return items.length ? (
     <div className="w-full mt-[124px] mb-[15vw]">
       <div className="w-full flex justify-between items-center">
         <div className="flex gap-3 text-5xl tracking-wider font-bold items-center">
           My movies
-          <PlusCircledIcon className="h-7 w-7" />
+          <PlusCircledIcon
+            className="h-7 w-7 cursor-pointer hover:scale-105"
+            onClick={() => {
+              router.push("/new");
+            }}
+          />
         </div>
         <div className="flex text-lg gap-5 items-center">
           Logout

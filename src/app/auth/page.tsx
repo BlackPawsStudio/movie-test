@@ -9,11 +9,13 @@ const AuthPage = () => {
       <div className="w-full flex flex-col gap-6">
         <Input placeholder="Email" />
         <Input placeholder="Password" />
-      <div className="flex gap-3 mx-auto">
-        <Checkbox></Checkbox>
-        <span>Remember me</span>
-      </div>
-      <Button className="text-xl p-6">Login</Button>
+        <div className="flex gap-3 mx-auto items-center cursor-pointer">
+          <Checkbox id="remember"></Checkbox>
+          <label htmlFor="remember" className="cursor-pointer">
+            Remember me
+          </label>
+        </div>
+        <Button className="text-xl p-6">Login</Button>
       </div>
     </div>
   );

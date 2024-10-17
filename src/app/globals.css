@@ -27,6 +27,10 @@ body {
 }
 
 @layer base {
+  * {
+    transition: all 0.3s;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
