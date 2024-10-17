@@ -1,5 +1,6 @@
 export interface MovieType {
+  id: number;
   title: string;
-  year: number;
+  year: string;
   img: string;
 }

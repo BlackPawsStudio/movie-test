@@ -16,12 +16,13 @@ const formSchema = z.object({
 interface MovieFormProps {
   title: string;
   onSubmit: (values: z.infer<typeof formSchema>) => void;
+  defaultValues?: z.infer<typeof formSchema>;
 }
 
-export const MovieForm = ({ title, onSubmit }: MovieFormProps) => {
+export const MovieForm = ({ title, onSubmit, defaultValues }: MovieFormProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
+    defaultValues: defaultValues || {
       title: "",
       year: "",
     },

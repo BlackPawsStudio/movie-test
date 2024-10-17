@@ -8,14 +8,14 @@ interface CardProps {
 }
 
 export const Card = ({ data: info }: CardProps) => {
-  const { title, year, img } = info;
+  const { title, year, img, id } = info;
 
   const router = useRouter();
 
   return (
     <div
-      className="bg-card w-fit p-2 pb-4 rounded-xl cursor-pointer hover:scale-105 active:scale-95"
-      onClick={() => router.push("/edit/0")}
+      className="bg-card w-fit p-2 pb-4 flex flex-col justify-between rounded-xl cursor-pointer hover:scale-105 active:scale-95"
+      onClick={() => router.push(`/edit/${id}`)}
     >
       <Image
         src={img}
@@ -24,8 +24,10 @@ export const Card = ({ data: info }: CardProps) => {
         width={500}
         height={500}
       />
-      <div className="px-2 text-xl mt-4">{title}</div>
-      <div className="px-2 text-sm text-secondary mt-3">{year}</div>
+      <div>
+        <div className="px-2 text-xl mt-4">{title}</div>
+        <div className="px-2 text-sm text-secondary mt-3">{year}</div>
+      </div>
     </div>
   );
 };

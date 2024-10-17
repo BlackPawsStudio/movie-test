@@ -6,18 +6,30 @@ import { MovieType } from "@/lib/types";
 import { SignOutButton, UserButton } from "@clerk/nextjs";
 import { ExitIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const HomePage = () => {
-  const items: MovieType[] = new Array(12).fill(null).map(() => ({
-    title: "test",
-    year: 2024,
-    img: "https://res.cloudinary.com/dxyapxi2t/image/upload/v1715092419/Untitled_qv9by4.png",
-  }));
+  const [items, setItems] = useState<MovieType[]>([]);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const getInfo = async () => {
+      const res = await fetch("/api/movies");
+      const data = await res.json();
+      setItems(data);
+      setIsLoading(false);
+    };
+
+    void getInfo();
+  }, []);
 
   const router = useRouter();
 
-  return items.length ? (
-    <div className="w-full mt-[124px] mb-[15vw]">
+  return isLoading ? (
+    <div className="border-4 my-auto border-primary rounded-full border-b-transparent animate-spin w-24 h-24" />
+  ) : items.length ? (
+    <div className="w-full mt-[124px] mb-[15vw] transition-none">
       <div className="w-full flex justify-between items-center">
         <div className="flex gap-3 text-xl lg:text-5xl tracking-wider font-bold items-center">
           My movies
